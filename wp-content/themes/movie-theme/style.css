@@ -1,0 +1,13 @@
+/*
+Theme Name: Movie Theme
+Theme URI: http://example.com/movie-theme
+Author: EJ
+Author URI: http://example.com
+Description: A Custom WordPress Theme for a Movie Website
+Version: 1.0
+License: GNU General Public License v2 or later
+Text Domain: movie-theme
+*/
+body{
+    background-color: red;
+}
