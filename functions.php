@@ -1,15 +1,39 @@
 <?php
 function movie_theme_enqueue_styles() {
     // استایل اصلی تم (style.css)
-    wp_enqueue_style( 'movie-style', get_stylesheet_uri() );
+    wp_enqueue_style(
+        'movie-style',
+        get_stylesheet_uri(),
+        array(),
+        filemtime(get_stylesheet_directory() . '/style.css')
+    );
 
     // Bootstrap CSS
-    wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), '5.3.2' );
+    wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/assets/css/bootstrap.rtl.min.css', array(), '5.3.2' );
 
     // Bootstrap JS (bundle شامل Popper)
     wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array(), '5.3.2', true );
 }
 add_action( 'wp_enqueue_scripts', 'movie_theme_enqueue_styles' );
+
+// ثبت منو در تم
+function movie_theme_register_menus() {
+    register_nav_menus(array(
+        'header-menu' => 'منوی هدر',
+    ));
+}
+add_action('after_setup_theme', 'movie_theme_register_menus');
+
+// فعال کردن قابلیت لوگو در تم
+function movie_theme_setup() {
+    add_theme_support('custom-logo', array(
+        'height'      => 60,
+        'width'       => 200,
+        'flex-height' => true,
+        'flex-width'  => true,
+    ));
+}
+add_action('after_setup_theme', 'movie_theme_setup');
 
 
 // ********************
@@ -80,3 +104,13 @@ function movie_theme_register_taxonomy() {
 add_action('init', 'movie_theme_register_taxonomy', 0);
 // فعال کردن پشتیبانی از تصویر شاخص
 add_theme_support('post-thumbnails');
+
+
+function my_frontpage_pagination_fix( $query ) {
+    if ( $query->is_main_query() && !is_admin() && is_front_page() ) {
+        $paged = get_query_var('paged') ? get_query_var('paged') : ( get_query_var('page') ? get_query_var('page') : 1 );
+        $query->set( 'paged', $paged );
+    }
+}
+add_action( 'pre_get_posts', 'my_frontpage_pagination_fix' );
+
