@@ -1,0 +1,77 @@
+/*
+Theme Name: Movie Theme
+Theme URI: http://example.com/movie-theme
+Author: EJ
+Author URI: http://example.com
+Description: A Custom WordPress Theme for a Movie Website
+Version: 1.0
+License: GNU General Public License v2 or later
+Text Domain: movie-theme
+*/
+body{
+    background-color: #1B1C1F !important;
+}
+a{
+    text-decoration: none !important;
+}
+
+.header-main{
+    background-color: #242629;
+}
+#menu-menu-1 {
+    gap: 24px;
+}
+#menu-menu-1 li a {
+    color: #fff;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+
+/*home page*/
+/* ظاهر کلی pagination */
+.pagination {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* دکمه‌های صفحه */
+.pagination .page-item .page-link {
+    color: #fff;                 /* رنگ متن سفید */
+    background-color: #343a40;   /* رنگ زمینه خاکستری تیره */
+    border: 1px solid #495057;   /* حاشیه ملایم */
+    margin: 0 3px;               /* فاصله بین دکمه‌ها */
+    min-width: 40px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* هاور دکمه‌ها */
+.pagination .page-item .page-link:hover {
+    background-color: #AB070F99;   /* تغییر رنگ هاور آبی */
+    color: #fff;
+}
+
+/* صفحه فعال */
+.pagination .page-item.active .page-link {
+    background-color: #AB070F99;
+    border-color: #AB070F99;
+    color: #fff;
+}
+
+/* دکمه قبلی و بعدی */
+.pagination .page-item:first-child .page-link,
+.pagination .page-item:last-child .page-link {
+    font-weight: bold;
+}
+
+/* ریسپانسیو */
+@media (max-width: 576px) {
+    .pagination .page-item .page-link {
+        padding: 6px 10px;
+        min-width: 35px;
+        font-size: 14px;
+    }
+}
