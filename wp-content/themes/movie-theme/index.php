@@ -2,7 +2,7 @@
 get_header();
 ?>
 
-<h1>Hello Movie Theme!</h1>
+<h1> Movie Theme!</h1>
 
 <?php
 if ( have_posts() ) :
