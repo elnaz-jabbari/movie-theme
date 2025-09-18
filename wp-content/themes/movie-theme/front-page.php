@@ -36,7 +36,6 @@ get_header();
                                     <?php the_title(); ?>
                                 </a>
                             </h5>
-
                             <p class="mb-1"><strong>سال انتشار:</strong> <?php the_field('movie_year');?></p>
                             <p class="mb-1"><strong>ژانر:</strong>
                                 <?php

@@ -208,3 +208,17 @@ body{
         order: 3;
     }
 }
+
+/*befor header*/
+@media (min-width: 1367px) and (max-width: 1700px) {
+    .before-header-1{
+        min-height: 110px;
+    }
+}
+
+
+@media (min-width: 1025px) and (max-width: 1199px) {
+    .before-header-1{
+        min-height: 85px ;
+    }
+}
